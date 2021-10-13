@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-app.use(express.static("./zadanie2/public"));
 app.use(express.json());
 
 const checkIsInt = (val1, val2) => {
@@ -10,7 +9,7 @@ const checkIsInt = (val1, val2) => {
 }
 
 app.post("/", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const {dividend, divider} = req.body;
   const val1 = parseInt(dividend);
   const val2 = parseInt(divider)
