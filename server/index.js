@@ -15,10 +15,10 @@ app.post("/", (req, res) => {
   const val2 = parseInt(divider)
   if(checkIsInt(val1, val2) === true) {
     val1 % val2 === 0
-      ? res.send(`Liczba ${val2} jest dzielnikiem liczby ${val1}`)
-      : res.send(`Liczba ${val2} NIE jest dzielnikiem liczby ${val1}`)
+      ? res.json({values: [val1, val2], message: true})
+      : res.json({values: [val1, val2], message: false})
   } else {
-    res.send(`Któraś z podanych wartości nie jest liczbą! (lub brak podanej wartości)`)
+    res.json({message : `Któraś z podanych wartości nie jest liczbą! (lub brak podanej wartości)`})
   }
 })
 

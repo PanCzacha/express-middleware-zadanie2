@@ -15,7 +15,7 @@ function App() {
         body: JSON.stringify({dividend, divider}),
       });
 
-      return await data.text();
+      return await data.json();
 
     } catch (e) {
       console.error(e);
@@ -25,6 +25,17 @@ function App() {
     e.preventDefault();
     sendData().then(response => setReply(response));
   }
+
+  const showMessage = () => {
+    if(typeof reply.message === "boolean") {
+      if(reply.message) {
+        return `Liczba ${reply.values[1]} jest dzielnikiem liczby ${reply.values[0]}`
+      }
+      return `Liczba ${reply.values[1]} NIE jest dzielnikiem liczby ${reply.values[0]}`
+    } else {
+      return reply.message
+    }
+  }
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -32,7 +43,7 @@ function App() {
         <input type="text" name="numberB" value={divider} onChange={(e) => setDivider(e.target.value)}/>
         <button type="submit">Sprawdź dzielnik</button>
       </form>
-      <p>{reply}</p>
+      <p>{showMessage()}</p>
     </div>
   );
 }
