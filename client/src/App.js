@@ -23,7 +23,7 @@ function App() {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await sendData().then(response => setReply(response));
+    sendData().then(response => setReply(response));
   }
   return (
     <div>
