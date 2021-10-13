@@ -21,7 +21,7 @@ function App() {
       console.error(e);
     }
   }
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     sendData().then(response => setReply(response));
   }
