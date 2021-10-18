@@ -7,7 +7,7 @@ function App() {
 
   async function sendData() {
     try {
-      const data = await fetch('/', {
+      const data = await fetch('/calc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
