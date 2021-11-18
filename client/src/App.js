@@ -21,7 +21,7 @@ function App() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    setReply("Loading....");
+    setReply("Calculating....");
     sendData().then(response => setReply(response));
   }
 
